@@ -10,7 +10,7 @@ def variables_view(request):
         id = request.GET.get("id", None)
         if id:
             variable_dto = vl.get_variable(id)
-            variable = serializers.serialize('json', [variable_dto,])
+            variable = serializers.serialize('json', [variable_dto, ])
             return HttpResponse(variable, 'application/json')
         else:
             variables_dto = vl.get_variables()
@@ -26,7 +26,7 @@ def variables_view(request):
 def variable_view(request, pk):
     if request.method == 'GET':
         variable_dto = vl.get_variable(pk)
-        variable = serializers.serialize('json', [variable_dto,])
+        variable = serializers.serialize('json', [variable_dto, ])
         return HttpResponse(variable, 'application/json')
 
     if request.method == 'PUT':
